@@ -30,7 +30,7 @@ https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowerTools
 
 ## CLI
 
-Start following statements (`dotnet ef ...`) in a cmd, path must set to the folder the solution file (.sln).
+Start following statements (`dotnet ef ...`) in a cmd, path must set to the folder the solution file (.sln), or choose different relative path settings for --project and --startup-project:
 
 `dotnet tool install --global dotnet-ef`
 `dotnet add package Microsoft.EntityFrameworkCore.Design`
@@ -39,7 +39,7 @@ Details: https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
 
 ### EF Migrations Add
 
-`MyApp\backend>dotnet ef migrations add --project .\MyApp.DataLayer --startup-project .\MyApp.Api MyNewMigration`
+`dotnet ef migrations add --project .\MyApp.DataLayer --startup-project .\MyApp.Api MyNewMigration`
 
 ### EF Database Update
 
@@ -49,7 +49,7 @@ Details: https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
 
 ### EF Migration (Rollback database changes - DATA LOSS MAY OCCURE - please check all Down() methods first)
 
-`dotnet ef database update  <old_migration_filname_without_suffix> --project .\MyApp.DataLayer --startup-project .\MyApp.Api`
+`dotnet ef database update  <old_migration_filename_without_suffix> --project .\MyApp.DataLayer --startup-project .\MyApp.Api`
 
 Example:
 
@@ -57,7 +57,7 @@ Example:
 
 ### EF Migrations - Remove last migration file (if not applied in database yet)
 
-`MyApp\backend>dotnet ef migrations remove --project .\MyApp.DataLayer --startup-project .\MyApp.Api`
+`dotnet ef migrations remove --project .\MyApp.DataLayer --startup-project .\MyApp.Api`
 
 ### EF Issues
 
