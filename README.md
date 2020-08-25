@@ -1,4 +1,4 @@
-# Enitiy Framework (EF) Core 3
+# Entity Framework (EF) Core 3
 
 Information about EF Core 3
 
