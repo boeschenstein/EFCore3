@@ -12,7 +12,15 @@ https://docs.microsoft.com/en-us/ef/efcore-and-ef6/
 
 ## Update EF6 -> EF Core: Generate Models and Context from existing database (reverse engineer)
 
-Create a new .NET Core console app. Install CLI tools. Scaffold entities from existing database:
+Create a new .NET Core console app. Install Sql Server Client and CLI tools:
+
+```cmd
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+Install-Package Microsoft.EntityFrameworkCore.Tools
+```
+
+Scaffold entities from existing database:
 
 ```cmd
 Scaffold-DbContext "Server=.\SQLExpress;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
@@ -33,6 +41,7 @@ https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowerTools
 Start following statements (`dotnet ef ...`) in a cmd, path must set to the folder the solution file (.sln), or choose different relative path settings for --project and --startup-project:
 
 `dotnet tool install --global dotnet-ef`
+
 `dotnet add package Microsoft.EntityFrameworkCore.Design`
 
 Details: https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
