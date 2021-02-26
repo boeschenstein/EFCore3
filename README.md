@@ -2,6 +2,61 @@
 
 Information about EF Core 3 + 5
 
+## Create Console App
+
+Partly from: https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
+
+```cmd
+cd c:\ temp
+dotnet new console -o EFGetStarted
+cd EFGetStarted
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+```
+
+<details>
+  <summary>Here you can find the DBContext and 2 entities aka database tables:</summary>
+
+```cs
+    public class BloggingContext : DbContext
+    {
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BloggingEF5_Test01");
+    }
+
+    public class Blog
+    {
+        public int BlogId { get; set; }
+        public string Url { get; set; }
+
+        public List<Post> Posts { get; } = new List<Post>();
+    }
+
+    public class Post
+    {
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        public int BlogId { get; set; }
+        public Blog Blog { get; set; }
+    }
+```
+
+</details>
+
+```cmd
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet ef migrations add InitialCreate
+
+REM This will create the database now:
+dotnet ef database update
+```
+
 ## EF Core releases and planning
 
 https://docs.microsoft.com/en-us/ef/core/what-is-new/
