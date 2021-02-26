@@ -126,3 +126,8 @@ Example:
 ### EF Issues
 
 If you are stuck (parallel migrations from other users), it sometime helps to add an empty migration.
+
+## EF 5: TPT (Table Per Type)
+
+https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-5.0/whatsnew#table-per-type-tpt-mapping
+
