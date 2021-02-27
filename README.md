@@ -127,9 +127,13 @@ Example:
 
 If you are stuck (parallel migrations from other users), it sometime helps to add an empty migration.
 
-## EF 3+5: TPH (Table Per Hierarchy)
+## Inheritance
 
 <https://docs.microsoft.com/en-us/ef/core/modeling/inheritance>
+
+### EF 3+5: TPH (Table Per Hierarchy) - discriminator
+
+<https://docs.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration>
 
 By default, EF Core maps an inheritance hierarchy of .NET types to a single database table. This is known as table-per-hierarchy (TPH) mapping.
 
@@ -145,6 +149,14 @@ A new field `discriminator` will be added:
  [Discriminator]  NVARCHAR (MAX) NOT NULL,
 ```
 
-## EF 5: TPT (Table Per Type)
+### EF 5: TPT (Table Per Type)
 
 <https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-5.0/whatsnew#table-per-type-tpt-mapping>
+<https://docs.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration>
+
+TPT is defined by inheritance and dedicated table name:
+
+```cs
+    [Table("Students")]
+    public class Student : Person
+```
