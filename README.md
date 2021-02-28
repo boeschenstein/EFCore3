@@ -2,6 +2,8 @@
 
 Information about EF Core 3 + 5
 
+> EF 5 can be used in Core 3 app.
+
 ## Create Console App
 
 Partly from: https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
@@ -173,6 +175,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     modelBuilder.Entity<Student>().ToTable("Students");
 }
 ```
+
+If you try this in EF3, you'll geht this error: "The entity type 'Student' cannot be mapped to a table because it is derived from 'Person'. Only base entity types can be mapped to a table."
 
 ### TPC: Table-per-concrete-type (TPC) 
 
