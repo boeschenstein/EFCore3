@@ -154,9 +154,26 @@ A new field `discriminator` will be added:
 <https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-5.0/whatsnew#table-per-type-tpt-mapping>
 <https://docs.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration>
 
-TPT is defined by inheritance and dedicated table name:
+TPT is defined by inheritance _and_ dedicated table name:
 
 ```cs
-    [Table("Students")]
-    public class Student : Person
+[Table("People")]
+public class Person
+
+[Table("Students")]
+public class Student : Person
 ```
+
+or 
+
+```cs
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Person>().ToTable("People");
+    modelBuilder.Entity<Student>().ToTable("Students");
+}
+```
+
+### TPC: Table-per-concrete-type (TPC) 
+
+TPC (Table-per-concrete-type) is supported by EF6, but is not yet supported by EF Core. (28.02.2021)
