@@ -181,3 +181,8 @@ If you try this in EF3, you'll geht this error: "The entity type 'Student' canno
 ### TPC: Table-per-concrete-type (TPC) 
 
 TPC (Table-per-concrete-type) is supported by EF6, but is not yet supported by EF Core. (28.02.2021)
+
+## Links
+
+- Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
+- Recommended extensions: <https://docs.microsoft.com/en-us/ef/core/extensions/>
