@@ -127,7 +127,8 @@ Example:
 
 ### EF Issues
 
-If you are stuck (parallel migrations from other users), it sometime helps to add an empty migration.
+- Handling EF Core migrations in a team: <https://jkdev.me/handling-ef-core-migrations/>
+- If you are stuck (parallel migrations from other users), it sometime helps to add an empty migration. (tbv: still valid in EF Core?)
 
 ## Inheritance
 
