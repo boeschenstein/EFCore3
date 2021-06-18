@@ -187,3 +187,4 @@ TPC (Table-per-concrete-type) is supported by EF6, but is not yet supported by E
 
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
 - Recommended extensions: <https://docs.microsoft.com/en-us/ef/core/extensions/>
+- be careful using ToLower: <https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity>
