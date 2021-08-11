@@ -183,6 +183,22 @@ If you try this in EF3, you'll geht this error: "The entity type 'Student' canno
 
 TPC (Table-per-concrete-type) is supported by EF6, but is not yet supported by EF Core. (28.02.2021)
 
+## Knowledge Base
+  
+### Remove a property from model, but keep it in database
+  
+```cs
+// OLD/BEFORE: normal property definition
+entity.Property(x => x.Status).HasColumnName("status").IsFixedLength(true).HasMaxLength(1).IsUnicode(false);
+```
+
+Remove the property "status" from the model and change the last line to this:
+  
+```cs
+// NEW/AFTER: The next line will keep the status field in the database. To remove the field from the database, just delete this line and create a new migration
+entity.Property(typeof(string), "status").IsFixedLength(true).HasMaxLength(1).IsUnicode(false).IsRequired(false);
+```
+
 ## Links
 
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
