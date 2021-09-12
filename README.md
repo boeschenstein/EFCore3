@@ -185,7 +185,7 @@ TPC (Table-per-concrete-type) is supported by EF6, but is not yet supported by E
 
 ## Knowledge Base
   
-### Remove a property from model, but keep it in database
+### Remove a property from model, but keep it in database "Shadow Property"
   
 ```cs
 // OLD/BEFORE: normal property definition
@@ -198,6 +198,8 @@ Remove the property "status" from the model and change the last line to this:
 // NEW/AFTER: The next line will keep the status field in the database. To remove the field from the database, just delete this line and create a new migration
 entity.Property(typeof(string), "status").IsFixedLength(true).HasMaxLength(1).IsUnicode(false).IsRequired(false);
 ```
+
+More details see "Configuring shadow properties": <https://docs.microsoft.com/en-us/ef/core/modeling/shadow-properties#configuring-shadow-properties>
 
 ## Add EF Core Logging 
   
