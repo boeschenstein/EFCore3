@@ -199,6 +199,14 @@ Remove the property "status" from the model and change the last line to this:
 entity.Property(typeof(string), "status").IsFixedLength(true).HasMaxLength(1).IsUnicode(false).IsRequired(false);
 ```
 
+## Add EF Core Logging 
+  
+Add the following to appsettings.json, section Logging, Loglevel:
+
+```json
+"Microsoft.EntityFrameworkCore.Database.Command": "Information"
+```
+  
 ## Links
 
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
