@@ -208,7 +208,28 @@ Add the following to appsettings.json, section Logging, Loglevel:
 ```json
 "Microsoft.EntityFrameworkCore.Database.Command": "Information"
 ```
+
+## Update from .NET Classic
   
+### beware of queries using Any()
+
+```
+return x => ids.Contains(x.MyId.Value); //  new version (fix)
+
+return x => ids.Any(y => y == x.MyId); // Orignal code, gave this error:
+```
+
+Error message:
+
+```
+The LINQ expression 'y => (int?)y == EntityShaperExpression:
+MyApp.Data.Model.KeyAccount
+ValueBufferExpression:
+ProjectionBindingExpression: EmptyProjectionMember
+IsNullable: False
+.MyId' could not be translated.
+```
+
 ## Links
 
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
