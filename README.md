@@ -201,6 +201,26 @@ entity.Property(typeof(string), "status").IsFixedLength(true).HasMaxLength(1).Is
 
 More details see "Configuring shadow properties": <https://docs.microsoft.com/en-us/ef/core/modeling/shadow-properties#configuring-shadow-properties>
 
+### Performance: use 'explicit loading' to relax main query
+
+Try this solution: Relax the main query and load complex data separately.
+
+```cs
+MyItem myItem = Context.MyItems
+    .Include(x => x.Table0)
+    .Include(x => x.Table1)
+  //.Include(x => x.Table3).ThenInclude(y => y.SubTable3)
+  //.Include(x => x.Table4).ThenInclude(y => y.SubTable4a)
+  //.Include(x => x.Table4).ThenInclude(y => y.SubTable4b)
+    .FirstOrDefault(x => x.ID == id);
+
+// nested explicit loading: https://stackoverflow.com/questions/49968247/explicit-loading-nested-related-models-in-entity-framework
+Context.Entry(myItem).Collection(x => x.Table3).Query().Include(x => x.SubTable3).Load();
+Context.Entry(myItem).Collection(x => x.Table4).Query().Include(x => x.SubTable4a).Include(x => x.SubTable4b).Load();
+
+return myItem;
+```
+
 ## Add EF Core Logging 
   
 Add the following to appsettings.json, section Logging, Loglevel:
