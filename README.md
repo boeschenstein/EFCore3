@@ -255,4 +255,6 @@ IsNullable: False
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
 - Recommended extensions: <https://docs.microsoft.com/en-us/ef/core/extensions/>
 - Be careful using ToLower: <https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity>
-- Handling EF Core migrations in a team <https://jkdev.me/handling-ef-core-migrations/>
+- Migrations
+  - Handling EF Core migrations in a team <https://jkdev.me/handling-ef-core-migrations/>
+  - Deploy Migrations: <http://www.leerichardson.com/2023/03/how-to-deploy-ef-database-migrations.html>
