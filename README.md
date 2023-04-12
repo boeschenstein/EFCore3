@@ -109,7 +109,7 @@ Details: https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet
 
 ### EF Database Update
 
-> Install migrations (which are not applied yet) in database
+> Create Database (if needed), Install all migrations (which are not applied yet) in database (check table __efmigrationshistory)
 
 `dotnet ef database update --project .\MyApp.DataLayer --startup-project .\MyApp.Api`
 
