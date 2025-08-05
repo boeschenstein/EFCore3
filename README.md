@@ -252,6 +252,7 @@ IsNullable: False
 
 ## Links
 
+- Fast delete and update: use ExecuteDelete() or ExecuteUpdate() https://youtube.com/shorts/HK4RWImZ86g
 - Bulk Extension <https://github.com/borisdj/EFCore.BulkExtensions>
 - Recommended extensions: <https://docs.microsoft.com/en-us/ef/core/extensions/>
 - Be careful using ToLower: <https://docs.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity>
