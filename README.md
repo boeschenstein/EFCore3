@@ -227,12 +227,22 @@ Practical rule
 - Use NoTracking for GET endpoints, list pages, and read-only queries. This avoids change-tracker overhead and is usually the better default for APIs.
 - Use Tracking for POST, PUT, PATCH, DELETE, or any endpoint where you load an entity and then update it in the same request.
 
-```
-	.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)	// suggested defaultd
+```cs
+	.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)	// suggested default (in web app)
 	.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll)
 ```
 
 Tracking vs. No-Tracking Queries in EF Core 10 - When to Use Each: <https://codewithmukesh.com/blog/tracking-vs-no-tracking-queries-efcore/>
+
+Detatch referenced objects:
+
+```cs
+public void MarkUnchanged(object entity)
+{
+    ArgumentNullException.ThrowIfNull(entity);
+    _context.Entry(entity).State = EntityState.Unchanged;
+}
+```
 
 ## Add EF Core Logging 
   
