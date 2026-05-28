@@ -223,6 +223,13 @@ return myItem;
 
 ## Tracking
 
+Question: Is "tracked" and "attached" the same in EF context?
+Answer: Not exactly, but closely related:
+•	Tracked = The entity is in the EF change tracker with ANY state (Added, Modified, Unchanged, Deleted)
+•	Attached = The entity is tracked with state Unchanged (or you're calling .Attach() to put it there)
+
+`--> All attached entities are tracked, but not all tracked entities are attached (they could be Added, Modified, etc.).`
+
 Practical rule
 - Use NoTracking for GET endpoints, list pages, and read-only queries. This avoids change-tracker overhead and is usually the better default for APIs.
 - Use Tracking for POST, PUT, PATCH, DELETE, or any endpoint where you load an entity and then update it in the same request.
